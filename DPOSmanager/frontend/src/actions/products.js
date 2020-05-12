@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_PRODUCTS, DELETE_PRODUCT } from "./types";
+import { GET_PRODUCTS, DELETE_PRODUCT, ADD_PRODUCT } from "./types";
 
 // GET PRODUCTS
 export const getProducts = () => (dispatch) => {
@@ -15,7 +15,7 @@ export const getProducts = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-// DELETE PRODUCTS
+// DELETE PRODUCT
 export const deleteProduct = (id) => (dispatch) => {
   axios
     .delete(`/api/app1/${id}`)
@@ -23,6 +23,19 @@ export const deleteProduct = (id) => (dispatch) => {
       dispatch({
         type: DELETE_PRODUCT,
         payload: id,
+      });
+    })
+    .catch((err) => console.log(err));
+};
+
+// ADD PRODUCT
+export const addProduct = (product) => (dispatch) => {
+  axios
+    .post(`/api/app1/`, product)
+    .then((res) => {
+      dispatch({
+        type: ADD_PRODUCT,
+        payload: res.data,
       });
     })
     .catch((err) => console.log(err));
