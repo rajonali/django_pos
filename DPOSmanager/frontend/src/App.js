@@ -19,7 +19,6 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Header />
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Login} />
@@ -32,7 +31,6 @@ class App extends Component {
             <Route path="/settings" exact component={Settings} />
           </Switch>
         </BrowserRouter>
-        <Footer />
       </Provider>
     );
   }

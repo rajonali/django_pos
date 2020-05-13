@@ -19,8 +19,6 @@ export class Products extends Component {
   render() {
     return (
       <Fragment>
-        <h1>PRODUCTS</h1>
-
         <h1>Product List</h1>
 
         <table className="table table-striped">
