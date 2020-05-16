@@ -7,7 +7,6 @@ def index(request):
 def dashboard(request):
     return render(request, 'frontend/dashboard.html')
 
-
 def products(request):
     return render(request, 'frontend/products.html')
 

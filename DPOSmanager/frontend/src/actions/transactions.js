@@ -1,14 +1,14 @@
 import axios from "axios";
 
-import { GET_PRODUCTS, DELETE_PRODUCT, ADD_PRODUCT } from "./types";
+import { GET_TRANSACTIONS, DELETE_TRANSACTION, ADD_TRANSACTION } from "./types";
 
 // GET PRODUCTS
-export const getProducts = () => (dispatch) => {
+export const getTransactions = () => (dispatch) => {
   axios
-    .get("/api/products/")
+    .get("/api/transactions/")
     .then((res) => {
       dispatch({
-        type: GET_PRODUCTS,
+        type: GET_TRANSACTIONS,
         payload: res.data,
       });
     })
@@ -16,12 +16,12 @@ export const getProducts = () => (dispatch) => {
 };
 
 // DELETE PRODUCT
-export const deleteProduct = (id) => (dispatch) => {
+export const deleteTransaction = (id) => (dispatch) => {
   axios
-    .delete(`/api/products/${id}`)
+    .delete(`/api/transactions/${id}`)
     .then((res) => {
       dispatch({
-        type: DELETE_PRODUCT,
+        type: DELETE_TRANSACTION,
         payload: id,
       });
     })
@@ -29,12 +29,12 @@ export const deleteProduct = (id) => (dispatch) => {
 };
 
 // ADD PRODUCT
-export const addProduct = (product) => (dispatch) => {
+export const addTransaction = (transaction) => (dispatch) => {
   axios
-    .post(`/api/products/`, product)
+    .post(`/api/transactions/`, transaction)
     .then((res) => {
       dispatch({
-        type: ADD_PRODUCT,
+        type: ADD_TRANSACTION,
         payload: res.data,
       });
     })

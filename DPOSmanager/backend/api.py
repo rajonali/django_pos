@@ -1,15 +1,8 @@
-from backend.models  import Backend_model, Employees_model, Products_model
+from backend.models  import Employees_model, Products_model, Transactions_model
 from rest_framework import viewsets, permissions
-from .serializers import BackendSerializer, EmployeesSerializer, ProductsSerializer
+from .serializers import EmployeesSerializer, ProductsSerializer, TransactionsSerializer
 
 
-class BackendViewSet(viewsets.ModelViewSet):
-    queryset = Backend_model.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-
-    serializer_class = BackendSerializer
 
 class EmployeesViewSet(viewsets.ModelViewSet):
     queryset = Employees_model.objects.all()
@@ -27,3 +20,14 @@ class ProductsViewSet(viewsets.ModelViewSet):
     ]
 
     serializer_class = ProductsSerializer
+    
+
+
+
+class TransactionsViewSet(viewsets.ModelViewSet):
+    queryset = Transactions_model.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    serializer_class = TransactionsSerializer
