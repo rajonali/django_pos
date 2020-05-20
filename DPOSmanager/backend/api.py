@@ -1,6 +1,6 @@
-from backend.models  import Employees_model, Products_model, Transactions_model
+from backend.models  import Employees_model, Products_model, Transactions_model, Cart_model
 from rest_framework import viewsets, permissions
-from .serializers import EmployeesSerializer, ProductsSerializer, TransactionsSerializer
+from .serializers import EmployeesSerializer, ProductsSerializer, TransactionsSerializer, CartSerializer
 
 
 
@@ -31,3 +31,15 @@ class TransactionsViewSet(viewsets.ModelViewSet):
     ]
 
     serializer_class = TransactionsSerializer
+
+
+
+class CartViewSet(viewsets.ModelViewSet):
+    queryset = Cart_model.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+
+    serializer_class = CartSerializer
+
+

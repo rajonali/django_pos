@@ -1,4 +1,6 @@
 from django.db import models
+from jsonfield import JSONField
+from django.contrib.postgres.fields import ArrayField
 
 
 
@@ -21,13 +23,17 @@ class Products_model(models.Model):
 
 
 class Transactions_model(models.Model):
-    product_array = models.CharField(max_length=100)
-    total = models.IntegerField()
+    products = models.TextField()
+    total = models.CharField(max_length=100)
     tax = models.CharField(max_length=100)
-    employee = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+class Cart_model(models.Model):
+    price = models.CharField(max_length=100)
+    total = models.IntegerField()
+    quantity = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
     
     
 

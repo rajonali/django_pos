@@ -52,7 +52,7 @@ export class TransactionsCard extends Component {
                 <tbody>
                   {this.props.transactions.map((transaction) => (
                     <tr key={transaction.id}>
-                      <td>{transaction.product_array}</td>
+                      <td>{transaction.products}</td>
                       <td>{transaction.total}</td>
                       <td>{transaction.tax}</td>
                       <td>{transaction.employee}</td>
