@@ -28,40 +28,49 @@ class CartPanel extends Component {
 
   render() {
     return (
-      <div class="card" style={{ display: "flex" }}>
-        <div
-          style={{ display: "flex", flexDirection: "column" }}
-          class="card-body"
-        >
-          {this.props.cart.map((cart_item) => (
-            <div
-              style={{
-                display: "flex",
-                paddingTop: 20,
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <p>
-                Item #{cart_item.id} => {cart_item.quantity} items @ $
-                {cart_item.price}
-              </p>
-              <pre> </pre>
-              <button onClick={this.props.deleteCart.bind(this, cart_item.id)}>
-                remove
-              </button>
-            </div>
-          ))}
+      <div style={{ display: "flex", width: "35%" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div class="card">
+            <table class="table">
+              <thead class="card-header">
+                <tr>
+                  <th scope="col">Item #</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody class="card-body">
+                {this.props.cart.map((cart) => (
+                  <tr>
+                    <td>{cart.id}</td>
+                    <td>{cart.quantity}</td>
+                    <td>${cart.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <br />
-          <p>SUBTOTAL: $ {this.totalCart(this.props.cart)}</p>
-          <p>TAX: $ {0.1 * this.totalCart(this.props.cart)}</p>
-          <p>TOTAL: $ {1.1 * this.totalCart(this.props.cart)}</p>
-
-          <TenderModal
-            products={JSON.stringify(this.props.cart)}
-            total={1.1 * this.totalCart(this.props.cart)}
-            tax={0.1 * this.totalCart(this.props.cart)}
-          />
+          <div class="card">
+            <div class="card-body">
+              <h4>
+                <strong>
+                  SUBTOTAL: $ {this.totalCart(this.props.cart).toFixed(2)}
+                </strong>
+              </h4>
+              <h5>
+                + TAX: $ {(0.1 * this.totalCart(this.props.cart)).toFixed(2)}
+              </h5>
+              <h5>
+                = TOTAL: $ {(1.1 * this.totalCart(this.props.cart)).toFixed(2)}
+              </h5>
+              <TenderModal
+                products={JSON.stringify(this.props.cart)}
+                total={1.1 * this.totalCart(this.props.cart)}
+                tax={0.1 * this.totalCart(this.props.cart)}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );

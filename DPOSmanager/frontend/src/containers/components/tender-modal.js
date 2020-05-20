@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 import { addTransaction } from "../../actions/transactions";
 import { connect } from "react-redux";
 
@@ -44,26 +44,52 @@ class TenderModal extends Component {
     return (
       <Fragment>
         <Modal show={this.state.show} handleClose={this.hideModal}>
-          <label>TOTAL: </label>
-          <p>{this.props.total}</p>
-          <label>Cash: {this.state.cash}</label>
-          <input
-            onChange={this.myChangeHandlerCash}
-            value={this.state.cash}
-            type="number"
-          ></input>
-          <br />
-          <label>Credit:</label>
-          <input
-            onChange={this.myChangeHandlerCredit}
-            value={this.state.credit}
-            type="number"
-          ></input>
-          <label>Change:</label>
-          <div>{this.state.cash + this.state.credit - this.props.total}</div>
-          <button onClick={this.finalizeTransaction}>FINALIZE SALE</button>
+          <div class="card">
+            <div class="card-body">
+              <h5>
+                <strong>TOTAL: </strong>
+              </h5>
+              <center>
+                <h1>${this.props.total.toFixed(2)}</h1>
+              </center>
+              <InputGroup className="sm-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text>$</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  onChange={this.myChangeHandlerCash}
+                  value={this.state.cash}
+                  aria-label="Amount (to the nearest dollar)"
+                />
+                <InputGroup.Append>
+                  <InputGroup.Text>.00</InputGroup.Text>
+                </InputGroup.Append>
+              </InputGroup>
+
+              <br />
+
+              <br />
+              <label>
+                <strong>Change:</strong>
+              </label>
+              <div>{(this.state.cash - this.props.total).toFixed(2)}</div>
+              <br />
+              <Button
+                variant="success"
+                style={{ width: "100%" }}
+                onClick={this.finalizeTransaction}
+              >
+                FINALIZE SALE
+              </Button>
+            </div>
+          </div>
         </Modal>
-        <button onClick={this.showModal}>Tender</button>
+        <Button
+          style={{ flex: "display", width: "100%" }}
+          onClick={this.showModal}
+        >
+          <strong>Tender</strong>
+        </Button>
       </Fragment>
     );
   }

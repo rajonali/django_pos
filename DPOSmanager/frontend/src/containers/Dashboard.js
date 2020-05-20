@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { getProducts } from "../actions/products";
 import ProductModal from "./components/productModal";
 import CartPanel from "./components/cart-panel";
+import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 
 export class Dashboard extends Component {
   constructor(props) {
@@ -39,11 +40,11 @@ export class Dashboard extends Component {
         style={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
         }}
       >
         <CartPanel />
-        <div class="card">
+        <div class="card" style={{ display: "flex", width: "65%" }}>
           <div class="card-body">
             <input
               type="text"
@@ -56,9 +57,15 @@ export class Dashboard extends Component {
             />
 
             <br />
-            <div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: "row",
+              }}
+            >
               {FilteredProducts.map((product) => (
-                <div style={{ outline: "0.5px solid black", padding: 10 }}>
+                <div class="card" style={{ padding: 10, width: "20%" }}>
                   <ProductModal
                     product={product}
                     onClick={this.onClick(product.id)}

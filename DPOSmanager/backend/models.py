@@ -30,7 +30,7 @@ class Transactions_model(models.Model):
 
 
 class Cart_model(models.Model):
-    price = models.CharField(max_length=100)
+    price = models.IntegerField()
     total = models.IntegerField()
     quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)

@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import { Modal } from "react-bootstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addCart, getCart } from "../../actions/cart";
 import { getProducts } from "../../actions/products";
+import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 
 class ProductModal extends Component {
   constructor(props) {
@@ -85,9 +85,10 @@ class ProductModal extends Component {
             <input type="submit" value="Submit" />
           </form>
         </Modal>
-        <button type="button" onClick={this.showModal}>
-          {this.props.product.name}
-        </button>
+        <div onClick={this.showModal}>
+          <center>{this.props.product.name}</center>
+          <center>${this.props.product.price}</center>
+        </div>
       </Fragment>
     );
   }

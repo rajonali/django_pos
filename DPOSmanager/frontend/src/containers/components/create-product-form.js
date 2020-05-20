@@ -6,7 +6,7 @@ import { addProduct } from "../../actions/products";
 export class Form extends Component {
   state = {
     image: "",
-    category: "",
+    category: "food",
     name: "",
     price: "",
     sku: "",
@@ -44,6 +44,10 @@ export class Form extends Component {
       unit_price,
     };
     this.props.addProduct(product);
+  };
+
+  handleChange = (e) => {
+    this.setState({ category: e.target.value });
   };
 
   render() {
@@ -113,12 +117,25 @@ export class Form extends Component {
                 <label>Category</label>
                 <br />
 
-                <select id="category" onChange={this.onChange}>
-                  <option value="food">Food</option>
-                  <option value="drink">Drink</option>
-                  <option value="alcohol">Alcohol</option>
-                  <option value="tobacco">Tobacco</option>
-                  <option value="phone_card">Phone Card</option>
+                <select
+                  value={this.state.selectValue}
+                  onChange={this.handleChange}
+                >
+                  <option name="category" value="food">
+                    Food
+                  </option>
+                  <option name="category" value="drink">
+                    Drink
+                  </option>
+                  <option name="category" value="alcohol">
+                    Alcohol
+                  </option>
+                  <option name="category" value="tobacco">
+                    Tobacco
+                  </option>
+                  <option name="category" value="phone_card">
+                    Phone Card
+                  </option>
                 </select>
               </div>
 
