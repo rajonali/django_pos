@@ -45,6 +45,46 @@ class TenderModal extends Component {
       <Fragment>
         <Modal show={this.state.show} handleClose={this.hideModal}>
           <div class="card">
+            <div
+              class="card-header"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                padding: "10px",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    display: "flex",
+                    alignSelf: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  Finalize Transaction
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
+                <span onClick={this.hideModal.bind(this)}>X</span>
+              </div>
+            </div>
+
             <div class="card-body">
               <h5>
                 <strong>TOTAL: </strong>

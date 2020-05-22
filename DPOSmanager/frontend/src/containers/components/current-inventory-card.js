@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getProducts } from "../../actions/products";
 import { deleteProduct } from "../../actions/products";
+import { FormControl } from "react-bootstrap";
 
 export class CurrentInventoryCard extends Component {
   constructor(props) {
@@ -37,11 +38,22 @@ export class CurrentInventoryCard extends Component {
             <h6 class="m-0 font-weight-bold text-primary">Current Inventory</h6>
           </div>
           <div class="card-body">
-            <input
-              type="text"
-              value={this.state.search}
-              onChange={this.updateSearch.bind(this)}
-            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "flex-end",
+                paddingBottom: "20px",
+              }}
+            >
+              <FormControl
+                style={{ width: "25%" }}
+                type="text"
+                value={this.state.search}
+                placeHolder="Search ..."
+                onChange={this.updateSearch.bind(this)}
+              />
+            </div>
 
             <div class="table-responsive">
               <table

@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
+import { Button } from "react-bootstrap";
+
 import { getTransactions } from "../actions/transactions";
 import { deleteTransaction } from "../actions/transactions";
 
@@ -23,6 +25,16 @@ export class Transactions extends Component {
   render() {
     return (
       <Fragment>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            paddingBottom: 20,
+          }}
+        >
+          <Button className="btn-primary">Generate Report</Button>
+        </div>
         <TransactionsCard transactions />
       </Fragment>
     );

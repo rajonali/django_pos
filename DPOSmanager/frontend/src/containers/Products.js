@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { getProducts } from "../actions/products";
 import { deleteProduct } from "../actions/products";
@@ -20,7 +21,16 @@ export class Products extends Component {
   render() {
     return (
       <Fragment>
-        <Form />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            paddingBottom: 20,
+          }}
+        >
+          <Form />
+        </div>
         <CurrentInventoryCard products />
       </Fragment>
     );

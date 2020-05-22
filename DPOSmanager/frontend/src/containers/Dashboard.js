@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getProducts } from "../actions/products";
 import ProductModal from "./components/productModal";
+import CategoryModal from "./components/categoryModal";
 import CartPanel from "./components/cart-panel";
 import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 
@@ -11,6 +12,8 @@ export class Dashboard extends Component {
     super(props);
     this.state = {
       search: "",
+      categories: ["food", "drink", "alcohol", "tobacco", "other"],
+      focusedCategory: "tobacco",
     };
   }
   static propTypes = {
@@ -32,7 +35,10 @@ export class Dashboard extends Component {
 
   render() {
     let FilteredProducts = this.props.products.filter((product) => {
-      return product.name.indexOf(this.state.search) !== -1;
+      return (
+        product.name.indexOf(this.state.search) !== -1 &&
+        product.category.indexOf(this.state.focusedCategory) !== -1
+      );
     });
 
     return (
@@ -57,11 +63,29 @@ export class Dashboard extends Component {
             />
 
             <br />
+            <div>
+              <h5>Categories</h5>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                }}
+              >
+                {this.state.categories.map((item) => (
+                  <div class="card" style={{ padding: 10, width: "20%" }}>
+                    <CategoryModal categoryName={item} />
+                  </div>
+                ))}
+              </div>
+              <hr />
+              <br />
+            </div>
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
                 flexDirection: "row",
+                flexWrap: "wrap",
               }}
             >
               {FilteredProducts.map((product) => (
@@ -82,6 +106,7 @@ export class Dashboard extends Component {
 
 const mapStateToProps = (state) => ({
   products: state.products.products,
+  categories: state.categories,
 });
 
 export default connect(mapStateToProps, { getProducts })(Dashboard);

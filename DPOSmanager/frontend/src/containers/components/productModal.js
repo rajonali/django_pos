@@ -66,24 +66,71 @@ class ProductModal extends Component {
     const { myq } = this.state;
     return (
       <Fragment>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
-          <p>ID: {this.props.product.id}</p>
-          <p>Name: {this.props.product.name}</p>
-          <p>Description: {this.props.product.description}</p>
-          <p>Quantity: {this.props.product.quantity}</p>
-          <p>Price: {this.props.product.price}</p>
+        <Modal
+          show={this.state.show}
+          handleClose={this.hideModal}
+          style={{ display: "flex", width: "100%" }}
+        >
+          <div class="card" style={{ display: "flex", width: "100%" }}>
+            <div
+              class="card-header"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                padding: "10px",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    display: "flex",
+                    alignSelf: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  Add to Cart
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
+                <span onClick={this.hideModal.bind(this)}>X</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>ID: {this.props.product.id}</p>
+              <p>Name: {this.props.product.name}</p>
+              <p>Description: {this.props.product.description}</p>
+              <p>Quantity: {this.props.product.quantity}</p>
+              <p>Price: {this.props.product.price}</p>
 
-          <form onSubmit={this.handleSubmit}>
-            <button> - </button>{" "}
-            <input
-              onChange={this.onChange}
-              type="number"
-              ref={(el) => (this.element = el)}
-              value={this.state.value}
-            />{" "}
-            <button> + </button>
-            <input type="submit" value="Submit" />
-          </form>
+              <form onSubmit={this.handleSubmit}>
+                <button> - </button>{" "}
+                <input
+                  onChange={this.onChange}
+                  type="number"
+                  ref={(el) => (this.element = el)}
+                  value={this.state.value}
+                />{" "}
+                <button> + </button>
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
+          </div>
         </Modal>
         <div onClick={this.showModal}>
           <center>{this.props.product.name}</center>
