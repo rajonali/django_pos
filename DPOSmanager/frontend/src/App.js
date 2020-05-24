@@ -21,8 +21,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/" exact component={Dashboard} />
             <Route path="/products" exact component={Products} />
             <Route path="/transactions" exact component={Transactions} />
             <Route path="/register" exact component={Register} />
