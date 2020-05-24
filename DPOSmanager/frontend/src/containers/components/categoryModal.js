@@ -68,10 +68,12 @@ class CategoryModal extends Component {
       <Fragment>
         <Modal show={this.state.show} handleClose={this.hideModal}>
           <div class="card">
-            <div class="card-body"></div>
+            <div class="card-body">
+              <center>{this.props.categoryName}</center>
+            </div>
           </div>
         </Modal>
-        <div onClick={this.showModal}>
+        <div>
           <center>{this.props.categoryName}</center>
         </div>
       </Fragment>

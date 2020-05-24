@@ -13,9 +13,11 @@ export class Dashboard extends Component {
     this.state = {
       search: "",
       categories: ["food", "drink", "alcohol", "tobacco", "other"],
-      focusedCategory: "tobacco",
+      focusedCategory: "",
+      filteredProducts: {},
     };
   }
+
   static propTypes = {
     products: PropTypes.array.isRequired,
     getProducts: PropTypes.func.isRequired,
@@ -33,11 +35,19 @@ export class Dashboard extends Component {
     return;
   }
 
+  catClick(categoryClicked) {
+    console.log(categoryClicked.toString());
+    this.setState({
+      ...this.state,
+      focusedCategory: categoryClicked.toString(),
+    });
+  }
+
   render() {
     let FilteredProducts = this.props.products.filter((product) => {
       return (
         product.name.indexOf(this.state.search) !== -1 &&
-        product.category.indexOf(this.state.focusedCategory) !== -1
+        product.category.indexOf(this.state.focusedCategory) != -1
       );
     });
 
@@ -73,13 +83,16 @@ export class Dashboard extends Component {
                 }}
               >
                 {this.state.categories.map((item) => (
-                  <div class="card" style={{ padding: 10, width: "20%" }}>
+                  <div
+                    class="card"
+                    onClick={this.catClick.bind(this, item)}
+                    style={{ padding: 10, width: "20%" }}
+                  >
                     <CategoryModal categoryName={item} />
                   </div>
                 ))}
               </div>
               <hr />
-              <br />
             </div>
             <div
               style={{

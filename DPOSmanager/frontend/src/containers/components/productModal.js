@@ -48,6 +48,7 @@ class ProductModal extends Component {
       quantity: this.state.value,
       price: this.props.product.price,
       total: this.props.product.price * this.state.value,
+      category: this.props.product.category,
     };
     console.log(newObj);
     this.props.addCart(newObj);
