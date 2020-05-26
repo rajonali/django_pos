@@ -8,13 +8,13 @@ def dashboard(request):
     return render(request, 'frontend/dashboard.html')
 
 def products(request):
-    return render(request, 'frontend/products.html')
+    return render(request, 'frontend/dashboard.html')
 
 def metrics(request):
-    return render(request, 'frontend/metrics.html')
+    return render(request, 'frontend/dashboard.html')
 
 def settings(request):
-    return render(request, 'frontend/settings.html')
+    return render(request, 'frontend/dashboard.html')
 
 def transactions(request):
-    return render(request, 'frontend/transactions.html')
+    return render(request, 'frontend/dashboard.html')

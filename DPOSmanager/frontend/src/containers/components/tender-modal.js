@@ -112,7 +112,11 @@ class TenderModal extends Component {
               <label>
                 <strong>Change:</strong>
               </label>
-              <div>{(this.state.cash - this.props.total).toFixed(2)}</div>
+              <div>
+                {(
+                  parseFloat(this.state.cash) - parseFloat(this.props.total)
+                ).toFixed(2)}
+              </div>
               <br />
               <Button
                 variant="success"

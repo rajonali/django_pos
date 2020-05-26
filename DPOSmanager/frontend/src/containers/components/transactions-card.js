@@ -6,11 +6,26 @@ import { getTransactions } from "../../actions/transactions";
 import { deleteTransaction } from "../../actions/transactions";
 
 export class TransactionsCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { tTotal: 0 };
+  }
   static propTypes = {
     transactions: PropTypes.array.isRequired,
     getTransactions: PropTypes.func.isRequired,
     deleteTransaction: PropTypes.func.isRequired,
   };
+
+  gettTotal() {
+    console.log(this.state);
+    for (var i; i < this.props.transactions.length; i++) {
+      this.setState({
+        total: (this.state.tTotal += this.props.transactions[i].total),
+      });
+    }
+
+    console.log(this.state.tTotal);
+  }
 
   componentDidMount() {
     this.props.getTransactions();
