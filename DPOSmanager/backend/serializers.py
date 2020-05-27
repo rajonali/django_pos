@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.models import Employees_model, Products_model, Transactions_model, Cart_model
+from backend.models import Employees_model, Products_model, Transactions_model, Cart_model, User_model
 
 
 #App1 serializer
@@ -22,4 +22,9 @@ class TransactionsSerializer(serializers.ModelSerializer):
 class CartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cart_model
+        fields =  '__all__'
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User_model
         fields =  '__all__'

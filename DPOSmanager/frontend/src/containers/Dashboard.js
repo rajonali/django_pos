@@ -6,7 +6,7 @@ import ProductModal from "./components/productModal";
 import CategoryModal from "./components/categoryModal";
 import CartPanel from "./components/cart-panel";
 import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
-
+import Login from "./Login";
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -345,8 +345,11 @@ export class Dashboard extends Component {
             class="container-fluid"
             style={{ display: "flex", flexDirection: "column", width: "100%" }}
           >
+            <Login />
+
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
               <div
                 style={{
                   display: "flex",

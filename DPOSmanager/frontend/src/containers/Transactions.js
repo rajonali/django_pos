@@ -27,6 +27,15 @@ export class Transactions extends Component {
   }
 
   totalCart(object) {
+    console.log(this.props.transactions[0]);
+    /** 
+    for (var i; i < this.props.transactions.length; i++) {
+      for (var x; x < i.length; x++) {
+        console.log(this.props.transactions[i].products[x].created_at);
+      }
+    }
+    */
+
     var total = 0;
 
     for (var key in object) {
@@ -337,6 +346,7 @@ export class Transactions extends Component {
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                   <h1 class="h3 mb-0 text-gray-800">Transactions</h1>
                 </div>
+                <Button className="btn-primary">Generate Report</Button>
               </div>
               <Fragment>
                 <div
@@ -363,7 +373,7 @@ export class Transactions extends Component {
                                 Total Sales
                               </div>
                               <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {this.totalCart(this.props.transactions)}{" "}
+                                ${this.totalCart(this.props.transactions)}{" "}
                               </div>
                             </div>
                             <div class="col-auto">
@@ -383,7 +393,7 @@ export class Transactions extends Component {
                                 Total Cash Sales
                               </div>
                               <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {this.totalCart(this.props.transactions)}{" "}
+                                ${this.totalCart(this.props.transactions)}{" "}
                               </div>
                             </div>
                             <div class="col-auto">
@@ -403,7 +413,7 @@ export class Transactions extends Component {
                                 Total Credit Sales
                               </div>
                               <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                {this.totalCart(this.props.transactions)}{" "}
+                                ${this.totalCart(this.props.transactions)}{" "}
                               </div>
                             </div>
                             <div class="col-auto">
@@ -420,11 +430,15 @@ export class Transactions extends Component {
                       alignItems: "center",
                       justifyContent: "center",
                     }}
-                  >
-                    <Button className="btn-primary">Generate Report</Button>
-                  </div>
+                  ></div>
                 </div>
                 <TransactionsCard transactions />
+                <div class="card shadow mb-4">
+                  <div class="card-header">Previous Transactions</div>
+                  <div class="card-body">
+                    <p>dsad</p>
+                  </div>
+                </div>
               </Fragment>
             </div>
           </div>

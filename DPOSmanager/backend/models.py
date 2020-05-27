@@ -35,5 +35,12 @@ class Cart_model(models.Model):
     quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     
-    
+
+
+
+class User_model(models.Model):
+    user = models.TextField()
+    password = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
 

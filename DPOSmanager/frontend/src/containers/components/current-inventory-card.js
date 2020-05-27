@@ -72,7 +72,6 @@ export class CurrentInventoryCard extends Component {
                     <th>SKU</th>
                     <th>Description</th>
                     <th>Unit Price</th>
-                    <th>Created At</th>
                   </tr>
                 </thead>
                 <tfoot>
@@ -85,7 +84,6 @@ export class CurrentInventoryCard extends Component {
                     <th>SKU</th>
                     <th>Description</th>
                     <th>Unit Price</th>
-                    <th>Created At</th>
                   </tr>
                 </tfoot>
                 <tbody>
@@ -99,7 +97,6 @@ export class CurrentInventoryCard extends Component {
                       <td>{product.sku}</td>
                       <td>{product.description}</td>
                       <td>{product.unit_price}</td>
-                      <td>{product.created_at}</td>
                       <td>
                         <button
                           onClick={this.props.deleteProduct.bind(
