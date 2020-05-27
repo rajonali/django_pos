@@ -367,7 +367,7 @@ export class Transactions extends Component {
                               </div>
                             </div>
                             <div class="col-auto">
-                              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                              <i class="fas fa-cash-register fa-2x text-gray-300"></i>
                             </div>
                           </div>
                         </div>
@@ -387,7 +387,7 @@ export class Transactions extends Component {
                               </div>
                             </div>
                             <div class="col-auto">
-                              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                              <i class="fas fa-money-bill-wave fa-2x text-gray-300"></i>
                             </div>
                           </div>
                         </div>
@@ -407,7 +407,7 @@ export class Transactions extends Component {
                               </div>
                             </div>
                             <div class="col-auto">
-                              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                              <i class="fas fa-credit-card fa-2x text-gray-300"></i>
                             </div>
                           </div>
                         </div>
