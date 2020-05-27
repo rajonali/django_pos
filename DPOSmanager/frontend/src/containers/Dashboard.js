@@ -16,6 +16,7 @@ export class Dashboard extends Component {
       focusedCategory: "",
       filteredProducts: {},
       categoryIsSelected: false,
+      dayIsOpen: true,
     };
   }
 
@@ -346,13 +347,36 @@ export class Dashboard extends Component {
           >
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-              <a
-                href="#"
-                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  width: "50%",
+                }}
               >
-                <i class="fas fa-download fa-sm text-white-50"></i> Generate
-                Report
-              </a>
+                {this.state.dayIsOpen ? (
+                  <Button className="btn btn-danger">
+                    <i class="fas fa-calendar-day fa-sm text-white-50"></i>{" "}
+                    End-Day
+                  </Button>
+                ) : (
+                  <Button className="btn btn-success">
+                    <i class="fas fa-calendar-day fa-sm text-white-50"></i>{" "}
+                    Start-Day
+                  </Button>
+                )}
+
+                <Button className="btn btn-primary">
+                  <i class="fas fa-stopwatch fa-sm text-white-50"></i> Employee
+                  Clock-In
+                </Button>
+
+                <Button className="btn btn-warning">
+                  <i class="fas fa-download fa-sm text-white-50"></i> Generate
+                  Report
+                </Button>
+              </div>
             </div>
             <div style={{ display: "flex" }}>
               <div

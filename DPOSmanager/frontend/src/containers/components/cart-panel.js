@@ -65,6 +65,7 @@ class CartPanel extends Component {
                 = TOTAL: $ {(1.1 * this.totalCart(this.props.cart)).toFixed(2)}
               </h5>
               <TenderModal
+                productsv2={this.props.cart}
                 products={JSON.stringify(this.props.cart)}
                 total={1.1 * this.totalCart(this.props.cart)}
                 tax={0.1 * this.totalCart(this.props.cart)}

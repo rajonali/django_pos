@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Modal, Button, InputGroup, FormControl } from "react-bootstrap";
 import { addTransaction } from "../../actions/transactions";
+import { deleteCart } from "../../actions/cart";
 import { connect } from "react-redux";
 
 class TenderModal extends Component {
@@ -36,6 +37,8 @@ class TenderModal extends Component {
     };
 
     this.props.addTransaction(trans);
+    //console.log(this.props.productsv2[0].id);
+    this.props.deleteCart(this.props.productsv2[0].id);
     this.hideModal();
   };
 
@@ -139,4 +142,4 @@ class TenderModal extends Component {
   }
 }
 
-export default connect(null, { addTransaction })(TenderModal);
+export default connect(null, { addTransaction, deleteCart })(TenderModal);
