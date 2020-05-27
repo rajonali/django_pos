@@ -38,7 +38,11 @@ class TenderModal extends Component {
 
     this.props.addTransaction(trans);
     //console.log(this.props.productsv2[0].id);
-    this.props.deleteCart(this.props.productsv2[0].id);
+    //console.log(this.props.productsv2.length);
+    console.log(this.props.productsv2);
+    for (var i = 0; i < this.props.productsv2.length; i++) {
+      this.props.deleteCart(this.props.productsv2[i].id);
+    }
     this.hideModal();
   };
 
